@@ -20,4 +20,21 @@ jobs:
 
     - name: Gather Network Diagnostics
       run: |
-        curl -I https://google.com
+        #!/bin/bash
+
+        # Send GET request to Google and store the response headers and body
+        response=$(curl -s -w "%{http_code}" -o /tmp/google_response.html https://www.google.com)
+        
+        # Extract the status code from the response
+        status_code=$(echo "$response" | tail -n1)
+        
+        # Calculate the length of the response body
+        page_length=$(wc -c < /tmp/google_response.html)
+        
+        # Print the status code and page length
+        echo "HTTP Status Code: $status_code"
+        echo "Page Length: $page_length bytes"
+        
+        # Clean up
+        rm /tmp/google_response.html
+        
