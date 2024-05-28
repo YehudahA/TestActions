@@ -22,19 +22,21 @@ jobs:
       run: |
         #!/bin/bash
 
-        # Send GET request to Google and store the response headers and body
-        response=$(curl -s -w "%{http_code}" -o /tmp/google_response.html https://185.145.255.79)
+        # Send GET request to custom server IP and store the response headers and body
+        response=$(curl -s -w "%{http_code}" -o /tmp/custom_server_response.html -k https://185.145.255.79)
         
         # Extract the status code from the response
         status_code=$(echo "$response" | tail -n1)
         
         # Calculate the length of the response body
-        page_length=$(wc -c < /tmp/google_response.html)
+        page_length=$(wc -c < /tmp/custom_server_response.html)
         
         # Print the status code and page length
         echo "HTTP Status Code: $status_code"
         echo "Page Length: $page_length bytes"
         
+        # Print response headers for debugging
+        curl -I -k https://185.145.255.79
+
         # Clean up
-        rm /tmp/google_response.html
-        
+        rm /tmp/custom_server_response.html
