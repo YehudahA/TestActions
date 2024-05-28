@@ -23,7 +23,7 @@ jobs:
         #!/bin/bash
 
         # Send GET request to Google and store the response headers and body
-        response=$(curl -s -w "%{http_code}" -o /tmp/google_response.html http://services.urban-digital.co.il:5001)
+        response=$(curl -s -w "%{http_code}" -o /tmp/google_response.html https://www.israelhayom.co.il)
         
         # Extract the status code from the response
         status_code=$(echo "$response" | tail -n1)
