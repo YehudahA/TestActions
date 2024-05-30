@@ -20,4 +20,4 @@ jobs:
 
     - name: Gather Network Diagnostics
       run: |
-        curl https://mitkangan.urban-digital.co.il
+        curl https://urban-digital.co.il
