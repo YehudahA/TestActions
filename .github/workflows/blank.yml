@@ -20,4 +20,4 @@ jobs:
 
     - name: Gather Network Diagnostics
       run: |
-        curl https://urban-digital.co.il
+        curl https://xpis.urban-digital.co.il:7011
