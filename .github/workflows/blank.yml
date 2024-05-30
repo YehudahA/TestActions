@@ -20,4 +20,4 @@ jobs:
 
     - name: Gather Network Diagnostics
       run: |
-        curl https://test3.urban-digital.co.il
+        curl https://moked.netivey.co.il/mobile
