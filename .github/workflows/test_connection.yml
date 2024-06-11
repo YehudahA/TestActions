@@ -31,6 +31,7 @@ jobs:
         LOCAL_PATH: /  # Change this to your local folder path
         REMOTE_PATH: /  # Change this to your remote folder path
       run: |
+        apt-get install lftp
         lftp -u $FTP_USERNAME,$FTP_PASSWORD -p $FTP_PORT $FTP_HOST <<EOF
         set ftp:ssl-allow true
         mirror --reverse --verbose --continue --parallel=2 "$LOCAL_PATH" "$REMOTE_PATH"
